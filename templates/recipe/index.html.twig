@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recette
+!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Recette ! ✅</h1>
+
+    <p>Voire la Liste des recettes disponibles : read </p>
+    <ul>
+         {% for recette in recettes %}
+         <li>
+            <a href="{{ path('recipe.show', {slug: recette.slug, id: recette.id}) }}">{{recette.title}}</a>
+         </li>
+        {% endfor %}}
+    </ul>
+    <br>
+
+    <p>Update la recette recettes disponibles : update </p>
+    <ul>
+         {% for recette in recettes %}
+         <li>
+            <a href="{{ path('recipe.edit', {slug: recette.slug, id: recette.id}) }}">{{recette.title}}</a>
+         </li>
+        {% endfor %}}
+    </ul>
+    <br>
+</div>
+{% endblock %}
